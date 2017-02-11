@@ -16,7 +16,7 @@ int		strcpy_launcher(void)
 {
 	t_unit_test *testlist;
 
-	puts("STRCPY:");
+	puts("\033[33mSTRCPY:\033[0m");
 	testlist = NULL;
 	ut_load_test(&testlist, "Basic test", &basic_test);
 	ut_load_test(&testlist, "NULL test", &null_test);
