@@ -19,8 +19,8 @@ int		strcpy_launcher(void)
 	puts("STRCPY:");
 	testlist = NULL;
 	ut_load_test(&testlist, "Basic test", &basic_test);
-//	ut_load_test(&testlist, "NULL test", &null_test);
-//	ut_load_test(&testlist, "BusError test", &bus_error_test);
-//	ut_load_test(&testlist, "Error test", &error_test);
+	ut_load_test(&testlist, "NULL test", &null_test);
+	ut_load_test(&testlist, "BusError test", &bus_error_test);
+	ut_load_test(&testlist, "Error test", &error_test);
 	return (ut_launch_tests(&testlist));
 }
