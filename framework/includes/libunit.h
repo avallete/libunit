@@ -12,7 +12,9 @@
 
 #ifndef LIBUNIT_LIBUNIT_H
 # define LIBUNIT_LIBUNIT_H
-# define TIMEOUT 10 * 1000 * 1000
+# define TEST_FMT "    > \033[36m%s\033[0m:	[%s]\n"
+# define TOTAL_FMT "%d/%d test checked. "
+# define TIMEOUT 1 * 1000 * 1000
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/wait.h>

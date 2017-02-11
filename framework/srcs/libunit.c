@@ -17,13 +17,13 @@ static void				ut_parse_signal(t_suite_test *env, int signal)
 	env->signal = signal;
 	env->has_fail = 1;
 	if (signal == SIGABRT)
-		env->mess = "ABRT";
+		env->mess = "\033[30;31mABRT\033[0m";
 	if (signal == SIGSEGV)
-		env->mess = "SEGV";
+		env->mess = "\033[30;31mSEGV\033[0m";
 	if (signal == SIGBUS)
-		env->mess = "BUSE";
+		env->mess = "\033[30;31mBUSE\033[0m";
 	if (signal == SIGALRM)
-		env->mess = "TIMEOUT";
+		env->mess = "\033[30;31mTIMEOUT\033[0m";
 }
 
 static void				ut_parse_response(t_suite_test *env, int status)
@@ -31,12 +31,12 @@ static void				ut_parse_response(t_suite_test *env, int status)
 	if (status == 0)
 	{
 		env->success += 1;
-		env->mess = "OK";
+		env->mess = "\033[32mOK\033[0m";
 	}
 	else
 	{
 		env->has_fail = 1;
-		env->mess = "KO";
+		env->mess = "\033[30;31mKO\033[0m";
 	}
 }
 
@@ -92,12 +92,13 @@ int						ut_launch_tests(t_unit_test **list)
 		{
 			if (ut_assert(&env, begin->testfunc) == 0)
 			{
-				printf("    > %s : [ %s ]\n", begin->name, env.mess);
+				printf(TEST_FMT, begin->name, env.mess);
 				env.total += 1;
 			}
 			begin = begin->next;
 		}
-		printf("%d/%d test checked.\n", env.success, env.total);
+		printf(TOTAL_FMT, env.success, env.total);
+		printf(env.has_fail ? "FAIL\n" : "SUCCESS\n");
 		ut_delete_test_list(list);
 	}
 	return (env.has_fail ? -1 : 0);
