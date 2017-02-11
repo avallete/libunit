@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2014/11/12 11:11:07 by avallete          #+#    #+#             */
+/*   Updated: 2014/11/12 12:50:40 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include "libft.h"
 
-int	main(void)
+size_t	ft_lstsize(t_list *list)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	t_list *begin;
+	size_t i;
+
+	begin = list;
+	if (!list)
+		return (0);
+	i = 0;
+	while (begin->next)
+	{
+		begin = begin->next;
+		i++;
+	}
+	return (i);
 }

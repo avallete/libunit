@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_longnbrlen.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2015/01/16 12:50:53 by avallete          #+#    #+#             */
+/*   Updated: 2015/01/16 12:51:40 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include <ft_printf.h>
 
-int	main(void)
+int		ft_longnbrlen(long int nb)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	int i;
+
+	i = 1;
+	if (nb < 0)
+		nb = -nb;
+	while (nb > 9)
+	{
+		i++;
+		nb /= 10;
+	}
+	return (i);
 }

@@ -14,20 +14,20 @@
 
 static t_unit_test	*new_test(char *name, t_func_test testfunc)
 {
-	t_unit_test *new;
+	t_unit_test *node;
 
 	if (!name || !(name[0]) || !testfunc)
 		return (NULL);
-	if (!(new = (t_unit_test*)malloc(sizeof(t_unit_test))))
+	if (!(node = (t_unit_test*)malloc(sizeof(t_unit_test))))
 		return (NULL);
-	if (!(new->name = ut_strdup(name)))
+	if (!(node->name = ut_strdup(name)))
 	{
-		free(new);
+		free(node);
 		return (NULL);
 	}
-	new->testfunc = testfunc;
-	new->next = NULL;
-	return (new);
+	node->testfunc = testfunc;
+	node->next = NULL;
+	return (node);
 }
 
 int					ut_load_test(t_unit_test **list,\

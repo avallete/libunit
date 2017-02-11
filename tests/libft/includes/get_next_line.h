@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2015/01/04 11:31:31 by avallete          #+#    #+#             */
+/*   Updated: 2015/01/22 17:27:58 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <libft.h>
+# define BUFF_SIZE 16
 
-int	main(void)
-{
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
-}
+int					get_next_line(int const fd, char **line);
+#endif

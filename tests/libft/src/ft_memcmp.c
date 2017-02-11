@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2014/11/03 14:41:35 by avallete          #+#    #+#             */
+/*   Updated: 2016/06/21 17:56:51 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
+	size_t i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char*)s1)[i] != ((unsigned char*)s2)[i])
+			return (((unsigned char*)s1)[i] - ((unsigned char*)s2)[i]);
+		i++;
+	}
 	return (0);
 }

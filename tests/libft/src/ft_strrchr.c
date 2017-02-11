@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2014/11/03 14:41:36 by avallete          #+#    #+#             */
+/*   Updated: 2016/06/21 17:43:37 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#define NULL 0
 
-int	main(void)
+char	*ft_strrchr(const char *s, int c)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	int		i;
+	char	*pos;
+
+	i = 0;
+	pos = NULL;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			pos = ((char*)&s[i]);
+		i++;
+	}
+	if (c == 0)
+		return ((char*)&s[i]);
+	return (pos);
 }

@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_dlstiter.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2015/05/30 00:40:08 by avallete          #+#    #+#             */
+/*   Updated: 2016/06/21 19:01:22 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include "libft.h"
 
-int	main(void)
+void	ft_dlstiter(t_dlst *list, void (*f)(t_dlst *elem))
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	if (list)
+	{
+		while (list->back)
+			list = list->back;
+		while (list)
+		{
+			f(list);
+			list = list->next;
+		}
+	}
 }

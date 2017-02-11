@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2014/11/03 14:41:36 by avallete          #+#    #+#             */
+/*   Updated: 2016/06/21 17:41:49 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include "libft.h"
 
-int	main(void)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	size_t i;
+	size_t e;
+
+	i = 0;
+	e = 0;
+	if (s2[0] == '\0' || s2 == NULL)
+		return ((char*)s1);
+	if (s1 && s2)
+	{
+		while (s1[i] != '\0')
+		{
+			e = 0;
+			while (s1[i] == s2[e])
+			{
+				e++;
+				i++;
+				if (e == ft_strlen(s2))
+					return ((char*)&s1[i - (ft_strlen(s2))]);
+			}
+			i++;
+		}
+	}
+	return (NULL);
 }

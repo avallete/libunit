@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2014/11/03 14:41:35 by avallete          #+#    #+#             */
+/*   Updated: 2016/06/21 18:06:16 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include <stdlib.h>
 
-int	main(void)
+void	*ft_memalloc(size_t size)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	void	*p;
+	size_t	i;
+
+	i = 0;
+	if (size == 0)
+		return (NULL);
+	p = (void*)malloc(sizeof(void*) * size);
+	if (p)
+	{
+		while (i != size)
+			((char*)p)[i++] = 0;
+		return (p);
+	}
+	return (NULL);
 }

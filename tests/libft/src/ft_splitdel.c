@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_splitdel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avallete <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2015/02/13 17:35:15 by avallete          #+#    #+#             */
+/*   Updated: 2015/02/18 12:52:51 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#include <libft.h>
 
-int	main(void)
+void	ft_splitdel(char **split)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	int i;
+
+	i = 0;
+	if (split)
+	{
+		while (((split)[i]) != NULL)
+			i++;
+		while (i > 0)
+			free(((split)[i--]));
+		if ((split[i]))
+			free(((split)[i]));
+		free(split);
+		split = NULL;
+	}
 }

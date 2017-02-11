@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_bus_error.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/11 00:10:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 00:10:00 by avallete         ###   ########.fr       */
+/*   Created: 2017/02/11 07:41:00 by avallete          #+#    #+#             */
+/*   Updated: 2017/02/11 07:41:00 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "00_launcher.h"
+#ifndef LIBUNIT_03_BUS_ERROR_TEST_H
+# define LIBUNIT_03_BUS_ERROR_TEST_H
+# include <string.h>
+# include "libft.h"
 
-int	main(void)
-{
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
-}
+int	bus_error_test(void);
+#endif

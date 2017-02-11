@@ -12,13 +12,23 @@
 
 #ifndef LIBUNIT_LIBUNIT_H
 # define LIBUNIT_LIBUNIT_H
+# define TIMEOUT 10 * 1000 * 1000
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/wait.h>
 # include <stdio.h>
-# include "ft_signal.h"
 
-typedef	int		(*t_func_test)(void);
+typedef	int				(*t_func_test)(void);
+
+typedef struct			s_suite_test
+{
+	char				has_fail;
+	int					signal;
+	char				*mess;
+	unsigned int		success;
+	unsigned int		total;
+	unsigned int		has_finish;
+}						t_suite_test;
 
 typedef struct			s_unit_test
 {

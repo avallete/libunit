@@ -14,8 +14,7 @@ UNIT_SRC_PATH=  ./framework/srcs
 UNIT_SRC_NAME:=$(shell find $(UNIT_SRC_PATH) -type f -name "*.c")
 
 UNIT_INC_PATH=  ./framework/includes/
-UNIT_INC_NAME=  libunit.h\
-                ft_signal.h
+UNIT_INC_NAME=  libunit.h
 
 OBJ_PATH =./obj
 OBJ_NAME:=$(UNIT_SRC_NAME:.c=.o)
@@ -49,7 +48,7 @@ $(NAME):$(OBJ)
 	@echo "${ORANGE}ranlib $(NAME)${NC}"
 	@ranlib $(NAME)
 
-$(OBJ): $(SRC) $(INCF)
+%.o: %.c $(INCF)
 	@echo "${ORANGE}Create bynary for $(NAME) : $@ with $<${NC}";
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
