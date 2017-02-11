@@ -1,0 +1,4 @@
+compiler: clang
+language: c
+script: make test -C tests
+os: osx

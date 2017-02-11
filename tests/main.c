@@ -14,6 +14,8 @@
 
 int	main(void)
 {
-	printf("[ %s ]\n", strlen_launcher() == 0 ? "SUCCESS" : "FAIL");
-	return (0);
+	unsigned int has_fail = 0;
+	if (printf("[ %s ]\n", strcpy_launcher() == 0 ? "SUCCESS" : "FAIL") == 9)
+		has_fail = 1;
+	return (has_fail ? -1 : 0);
 }

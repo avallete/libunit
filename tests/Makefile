@@ -12,14 +12,14 @@
 
 CFLAGS=-Wall -Wextra -Werror
 
-SRC_PATHS:=$(shell find . -d 1 -type d)
+SRC_PATHS:=$(shell find . -depth 1 -type d)
 SRC_NAME:=$(shell find . -mindepth 2 -type f -name "[0-9][0-9]*.c")
 INC_NAME=$(shell find . -mindepth 2 -type f -name "*.h")
 OBJ_NAME=$(SRC_NAME:.c=.o)
 
 SRC=$(SRC_NAME)
 OBJ=$(OBJ_NAME)
-INCF=./strlen/includes\
+INCF=./strcpy/includes\
 	./libft/includes\
 	../framework/includes
 INC=$(addprefix -I, $(INCF))
@@ -37,11 +37,11 @@ CYAN=\033[36m
 ORANGE=\033[33m
 NC=\033[0m
 
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re noflags test
 
 all: $(NAME)
 
-$(NAME):$(OBJ) ./main.c libft/libft.a ../libunit.a
+$(NAME):$(OBJ) ./main.c
 	@make -s -C ../
 	@make -s -C libft
 	@echo "${GREEN}Compile $(NAME) with $(CFLAGS)${NC}";
@@ -61,5 +61,8 @@ fclean: clean
 
 re: fclean all clean
 
+noflags: CFLAGS=""
+noflags: all
+
 test: all
-	@./tests.exe
+	./$(NAME)

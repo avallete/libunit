@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.h                                      :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,13 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_00_LAUNCHER_H
-# define LIBUNIT_00_LAUNCHER_H
-# include "libunit.h"
-# include "01_basic_test.h"
-# include "02_null_test.h"
-# include "03_bus_error_test.h"
-# include "04_error_test.h"
+#include "00_launcher.h"
 
-int	strlen_launcher(void);
-#endif
+int		strcpy_launcher(void)
+{
+	t_unit_test *testlist;
+
+	puts("STRCPY:");
+	testlist = NULL;
+	ut_load_test(&testlist, "Basic test", &basic_test);
+//	ut_load_test(&testlist, "NULL test", &null_test);
+//	ut_load_test(&testlist, "BusError test", &bus_error_test);
+//	ut_load_test(&testlist, "Error test", &error_test);
+	return (ut_launch_tests(&testlist));
+}
