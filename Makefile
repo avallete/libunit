@@ -10,21 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-UNIT_SRC_PATH=  ./framework/srcs/
-UNIT_SRC_NAME=$(find $(UNIT_SRC_PATH) -type f -name "*.c" -exec basename {} \;)
+UNIT_SRC_PATH=  ./framework/srcs
+UNIT_SRC_NAME:=$(shell find $(UNIT_SRC_PATH) -type f -name "*.c")
 
 UNIT_INC_PATH=  ./framework/includes/
 UNIT_INC_NAME=  libunit.h\
                 ft_signal.h
 
-OBJ_PATH =./obj/
-OBJ_NAME=$(UNIT_SRC_NAME:.c=.o)
+OBJ_PATH =./obj
+OBJ_NAME:=$(UNIT_SRC_NAME:.c=.o)
 
-SRC=$(addprefix $(UNIT_SRC_PATH), $(UNIT_SRC_NAME))
-OBJ=$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+SRC:=$(UNIT_SRC_NAME)
+OBJ:=$(OBJ_NAME)
 
-INCF=$(addprefix $(UNIT_INC_PATH), $(UNIT_INC_NAME))
-INC=$(addprefix -I, $(UNIT_INC_PATH))
+INCF:=$(addprefix $(UNIT_INC_PATH), $(UNIT_INC_NAME))
+INC:=$(addprefix -I, $(UNIT_INC_PATH))
 
 CFLAGS=-Wall -Wextra -Werror
 CC=gcc
@@ -38,7 +38,7 @@ CYAN=\033[0;36m
 ORANGE=\033[0;33m
 NC=\033[0m
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
@@ -49,20 +49,16 @@ $(NAME):$(OBJ)
 	@echo "${ORANGE}ranlib $(NAME)${NC}"
 	@ranlib $(NAME)
 
-$(OBJ_PATH)%.o: $(UNIT_SRC_PATH)%.c
-	@mkdir -p $(OBJ_PATH)
+$(OBJ): $(SRC) $(INCF)
 	@echo "${ORANGE}Create bynary for $(NAME) : $@ with $<${NC}";
 	@$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean:
 	@echo "${RED}Delete OBJ files${NC}"
-	@rm -rf $(OBJ_PATH)
+	@rm -rf $(OBJ)
 
 fclean: clean
 	@echo "${RED}Delete $(NAME) file${NC}"
 	@rm -rf $(NAME)
 
 re: fclean all clean
-
-debug: CFLAGS=-g3 -O0
-debug: all
