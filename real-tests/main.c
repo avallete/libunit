@@ -15,7 +15,9 @@
 
 int	main(void)
 {
-	unsigned int has_fail = 0;
+	unsigned int has_fail;
+
+	has_fail = 0;
 	if (strcpy_launcher() != 0)
 		has_fail = 1;
 	if (strlen_launcher() != 0)

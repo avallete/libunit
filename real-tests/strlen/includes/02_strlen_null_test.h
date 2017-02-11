@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_02_NULL_TEST_H
-# define LIBUNIT_02_NULL_TEST_H
+#ifndef LIBUNIT_02_STRLEN_NULL_TEST_H
+# define LIBUNIT_02_STRLEN_NULL_TEST_H
 # include <string.h>
 # include "libft.h"
 

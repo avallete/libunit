@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_04_INVALID_STRING_TEST_H
-# define LIBUNIT_04_INVALID_STRING_TEST_H
+#ifndef LIBUNIT_04_STRLEN_INVALID_STRING_TEST_H
+# define LIBUNIT_04_STRLEN_INVALID_STRING_TEST_H
 # include <string.h>
 # include "libft.h"
 

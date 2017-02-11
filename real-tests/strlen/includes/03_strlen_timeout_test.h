@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_03_TIMEOUT_TEST_H
-# define LIBUNIT_03_TIMEOUT_TEST_H
+#ifndef LIBUNIT_03_STRLEN_TIMEOUT_TEST_H
+# define LIBUNIT_03_STRLEN_TIMEOUT_TEST_H
 # include <string.h>
 # include "libft.h"
 

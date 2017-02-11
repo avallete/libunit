@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_STRLEN_00_LAUNCHER_H
-# define LIBUNIT_STRLEN_00_LAUNCHER_H
+#ifndef LIBUNIT_00_STRLEN_LAUNCHER_H
+# define LIBUNIT_00_STRLEN_LAUNCHER_H
 # include "libunit.h"
 # include "./01_strlen_basic_test.h"
 # include "./02_strlen_null_test.h"
