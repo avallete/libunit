@@ -6,7 +6,7 @@
 /*   By: avallete <avallete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 00:13:00 by avallete          #+#    #+#             */
-/*   Updated: 2017/02/11 13:14:24 by avallete         ###   ########.fr       */
+/*   Updated: 2017/03/01 13:13:14 by avallete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int		strcpy_launcher(void)
 	puts("\033[33mSTRCPY:\033[0m");
 	testlist = NULL;
 	ut_load_test(&testlist, "Basic test", &basic_test);
-	ut_load_test(&testlist, "NULL test", &null_test);
+/*	ut_load_test(&testlist, "NULL test", &null_test);
 	ut_load_test(&testlist, "BusError test", &bus_error_test);
-	ut_load_test(&testlist, "Error test", &error_test);
+	ut_load_test(&testlist, "Error test", &error_test); */
 	return (ut_launch_tests(&testlist));
 }
